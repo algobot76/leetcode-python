@@ -1,3 +1,3 @@
 class Solution:
     def findKthLargest(self, nums, k):
-        pass
+        return sorted(nums, reverse=True)[k - 1]
