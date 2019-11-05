@@ -4,19 +4,23 @@ class TwoSum:
         """
         Initialize your data structure here.
         """
-        pass
+        self.count = {}
 
     def add(self, number):
         """
         Add the number to an internal data structure..
         """
-        pass
+        self.count[number] = self.count.get(number, 0) + 1
 
     def find(self, value):
         """
         Find if there exists any pair of numbers which sum is equal to the value.
         """
-        pass
+        for num in self.count:
+            if value - num in self.count and (
+                    value - num != num or self.count[num] > 1):
+                return True
+        return False
 
 # Your TwoSum object will be instantiated and called as such:
 # obj = TwoSum()
