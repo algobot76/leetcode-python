@@ -1,8 +1,5 @@
 class Solution:
     def subsets(self, nums):
-        if not nums:
-            return [nums]
-
         nums.sort()
         subsets = []
         self.dfs(nums, 0, [], subsets)
