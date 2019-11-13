@@ -1,12 +1,11 @@
-from collections import defaultdict
-
+import collections
 
 class Solution:
     def firstUniqChar(self, s):
         if not s:
             return -1
 
-        counts = defaultdict(int)
+        counts = collections.defaultdict(int)
         for c in s:
             counts[c] += 1
 
