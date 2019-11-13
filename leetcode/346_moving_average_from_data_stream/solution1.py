@@ -1,4 +1,4 @@
-from collections import deque
+import collections
 
 
 class MovingAverage:
@@ -7,7 +7,7 @@ class MovingAverage:
         """
         Initialize your data structure here.
         """
-        self.q = deque([])
+        self.q = collections.deque()
         self.sum_ = 0
         self.size = size
 
