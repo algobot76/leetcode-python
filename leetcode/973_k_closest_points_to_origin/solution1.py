@@ -1,5 +1,4 @@
-from heapq import heappop
-from heapq import heappush
+import heapq
 
 
 class Solution:
@@ -7,13 +6,13 @@ class Solution:
         pq = []
         for point in points:
             dist = self.get_distance(point)
-            heappush(pq, (-dist, -point[0], -point[1]))
+            heapq.heappush(pq, (-dist, -point[0], -point[1]))
             if len(pq) > K:
-                heappop(pq)
+                heapq.heappop(pq)
 
         ans = []
         while len(pq) > 0:
-            (_, x, y) = heappop(pq)
+            (_, x, y) = heapq.heappop(pq)
             ans.append([-x, -y])
         return ans
 
