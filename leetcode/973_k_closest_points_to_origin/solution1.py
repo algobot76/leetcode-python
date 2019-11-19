@@ -3,16 +3,16 @@ import heapq
 
 class Solution:
     def kClosest(self, points, K):
-        pq = []
+        heap = []
         for point in points:
             dist = self.get_distance(point)
-            heapq.heappush(pq, (-dist, -point[0], -point[1]))
-            if len(pq) > K:
-                heapq.heappop(pq)
+            heapq.heappush(heap, (-dist, -point[0], -point[1]))
+            if len(heap) > K:
+                heapq.heappop(heap)
 
         ans = []
-        while len(pq) > 0:
-            (_, x, y) = heapq.heappop(pq)
+        while len(heap) > 0:
+            (_, x, y) = heapq.heappop(heap)
             ans.append([-x, -y])
         return ans
 
