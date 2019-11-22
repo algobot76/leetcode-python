@@ -1,19 +1,13 @@
 from typing import Optional
 
 
-class TrieNode:
-    def __init__(self):
-        self.is_word = False
-        self.children = [None] * 26
-
-
 class Trie:
 
     def __init__(self):
         """
         Initialize your data structure here.
         """
-        self.root = TrieNode()
+        self.root = {}
 
     def insert(self, word: str) -> None:
         """
@@ -21,18 +15,17 @@ class Trie:
         """
         curr = self.root
         for ch in word:
-            idx = ord(ch) - ord('a')
-            if not curr.children[idx]:
-                curr.children[idx] = TrieNode()
-            curr = curr.children[idx]
-        curr.is_word = True
+            if ch not in curr:
+                curr[ch] = {}
+            curr = curr[ch]
+        curr['#'] = True
 
     def search(self, word: str) -> bool:
         """
         Returns if the word is in the trie.
         """
         result = self._find(word)
-        return result is not None and result.is_word
+        return result is not None and '#' in result
 
     def startsWith(self, prefix: str) -> bool:
         """
@@ -40,13 +33,12 @@ class Trie:
         """
         return self._find(prefix) is not None
 
-    def _find(self, prefix: str) -> Optional[TrieNode]:
+    def _find(self, prefix: str) -> Optional[dict]:
         curr = self.root
         for ch in prefix:
-            idx = ord(ch) - ord('a')
-            if not curr.children[idx]:
+            if ch not in curr:
                 return None
-            curr = curr.children[idx]
+            curr = curr[ch]
         return curr
 
 # Your Trie object will be instantiated and called as such:
