@@ -10,7 +10,7 @@ class Solution:
         visited = {(0, 0)}
         while heap:
             i, r, c = heapq.heappop(heap)
-            if r == len(A) - 1 and c == len(A[0]) - 1:
+            if r == m - 1 and c == n - 1:
                 return -i
             dirs = [(1, 0), (0, 1), (-1, 0), (0, -1)]
             for dr, dc in dirs:
