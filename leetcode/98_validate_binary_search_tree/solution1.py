@@ -1,12 +1,8 @@
-# Definition for a binary tree node.
-# class TreeNode:
-#     def __init__(self, x):
-#         self.val = x
-#         self.left = None
-#         self.right = None
+from leetcode.utils import TreeNode
+
 
 class Solution:
-    def isValidBST(self, root):
+    def isValidBST(self, root: TreeNode) -> bool:
         if root is None:
             return True
 
