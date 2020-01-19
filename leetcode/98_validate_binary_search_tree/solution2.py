@@ -10,14 +10,13 @@ class Solution:
     def helper(self, root: TreeNode, lower: int, upper: int) -> bool:
         if root is None:
             return True
-        val = root.val
 
-        if val <= lower or val >= upper:
+        if root.val <= lower or root.val >= upper:
             return False
 
-        if not self.helper(root.left, lower, val):
+        if not self.helper(root.left, lower, root.val):
             return False
-        if not self.helper(root.right, val, upper):
+        if not self.helper(root.right, root.val, upper):
             return False
 
         return True
