@@ -1,6 +1,6 @@
 class LinkedNode:
 
-    def __init__(self, key, val):
+    def __init__(self, key: int, val: int):
         self.key = key
         self.val = val
         self.next = None
@@ -13,7 +13,7 @@ class LinkedList:
         self.head = None
         self.tail = None
 
-    def insert(self, node):
+    def insert(self, node: LinkedNode):
         node.next = None
         node.prev = None
         if self.head is None:
@@ -23,7 +23,7 @@ class LinkedList:
             node.prev = self.tail
         self.tail = node
 
-    def delete(self, node):
+    def delete(self, node: LinkedNode):
         if node.prev:
             node.prev.next = node.next
         else:
@@ -38,17 +38,17 @@ class LinkedList:
 
 class LRUCache:
 
-    def __init__(self, capacity):
+    def __init__(self, capacity: int):
         self.list_ = LinkedList()
         self.keys = {}
         self.cap = capacity
 
-    def _insert(self, key, val):
+    def _insert(self, key: int, val: int):
         node = LinkedNode(key, val)
         self.list_.insert(node)
         self.keys[key] = node
 
-    def get(self, key):
+    def get(self, key: int):
         if key in self.keys:
             val = self.keys[key].val
             self.list_.delete(self.keys[key])
@@ -57,7 +57,7 @@ class LRUCache:
 
         return -1
 
-    def put(self, key, value):
+    def put(self, key: int, value: int):
         if key in self.keys:
             self.list_.delete(self.keys[key])
         elif len(self.keys) == self.cap:
