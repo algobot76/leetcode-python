@@ -13,12 +13,12 @@ class Solution:
         mid = (left + right) // 2
         left_sum = self.helper(nums, left, mid)
         right_sum = self.helper(nums, mid + 1, right)
-        both_sum = self.get_both_sum(nums, left, right, mid)
+        cross_sum = self.get_cross_sum(nums, left, right, mid)
 
-        return max(left_sum, right_sum, both_sum)
+        return max(left_sum, right_sum, cross_sum)
 
-    def get_both_sum(self, nums: List[int], left: int, right: int,
-                     mid: int) -> int:
+    def get_cross_sum(self, nums: List[int], left: int, right: int,
+                      mid: int) -> int:
         if left == right:
             return nums[left]
 
