@@ -1,3 +1,6 @@
+import collections
+import sys
+
 from leetcode.utils import TreeNode
 
 
@@ -6,22 +9,16 @@ class Solution:
         if root is None:
             return True
 
-        stack = []
-        while root:
-            stack.append(root)
-            root = root.left
-
-        last_node = stack[-1]
-        while stack:
-            node = stack.pop()
-            if node.right:
-                node = node.right
-                while node:
-                    stack.append(node)
-                    node = node.left
-            if stack:
-                if stack[-1].val <= last_node.val:
-                    return False
-                last_node = stack[-1]
+        stack = collections.deque()
+        lower = -sys.maxsize - 1
+        while stack or root:
+            while root:
+                stack.append(root)
+                root = root.left
+            root = stack.pop()
+            if root.val <= lower:
+                return False
+            lower = root.val
+            root = root.right
 
         return True
