@@ -2,7 +2,7 @@ class Solution:
     def __init__(self):
         self.ans = []
 
-    def threeSum(self, nums):
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         for i in range(0, len(nums) - 2):
             if i > 0 and nums[i] == nums[i - 1]:
@@ -10,7 +10,7 @@ class Solution:
             self.two_sum(nums, i + 1, len(nums) - 1, -nums[i])
         return self.ans
 
-    def two_sum(self, nums, left, right, target):
+    def two_sum(self, nums: List[int], left: int, right: int, target: int):
         while left < right:
             if nums[left] + nums[right] == target:
                 self.ans.append([-target, nums[left], nums[right]])
