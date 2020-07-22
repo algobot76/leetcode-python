@@ -3,9 +3,8 @@
 #     def __init__(self, x):
 #         self.val = x
 #         self.next = None
-
 class Solution:
-    def middleNode(self, head: ListNode) -> ListNode:
+    def middleNode(self, head):
         fast = head
         slow = head
         while fast and fast.next:
