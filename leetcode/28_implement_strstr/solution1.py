@@ -3,10 +3,10 @@ class Solution:
         if not needle:
             return 0
 
-        l1 = len(haystack)
-        l2 = len(needle)
+        h = len(haystack)
+        n = len(needle)
 
-        for i in range(l1 - l2 + 1):
-            if haystack[i:i + l2] == needle:
+        for i in range(h - n + 1):
+            if haystack[i:i + n] == needle:
                 return i
         return -1
