@@ -1,8 +1,5 @@
-from typing import List
-
-
 class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
+    def maxSubArray(self, nums):
         max_sum = nums[0]
         curr_sum = nums[0]
 

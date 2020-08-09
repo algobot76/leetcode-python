@@ -1,12 +1,11 @@
 import sys
-from typing import List
 
 
 class Solution:
-    def maxSubArray(self, nums: List[int]) -> int:
+    def maxSubArray(self, nums):
         return self.helper(nums, 0, len(nums) - 1)
 
-    def helper(self, nums: List[int], left: int, right: int) -> int:
+    def helper(self, nums, left, right):
         if left == right:
             return nums[left]
 
@@ -17,8 +16,7 @@ class Solution:
 
         return max(left_sum, right_sum, cross_sum)
 
-    def get_cross_sum(self, nums: List[int], left: int, right: int,
-                      mid: int) -> int:
+    def get_cross_sum(self, nums, left, right, mid):
         if left == right:
             return nums[left]
 
