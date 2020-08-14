@@ -1,11 +1,10 @@
-"""
-# Definition for a Node.
+from collections import deque
+
+
 class Node:
     def __init__(self, val, neighbors):
         self.val = val
         self.neighbors = neighbors
-"""
-from collections import deque
 
 
 class Solution:
@@ -26,7 +25,7 @@ class Solution:
 
     def get_nodes(self, node):
         queue = deque([node])
-        result = set([node])
+        result = {node}
         while queue:
             node = queue.popleft()
             for neighbor in node.neighbors:
