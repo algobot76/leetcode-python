@@ -4,11 +4,13 @@
 #         self.val = x
 #         self.left = None
 #         self.right = None
+import collections
+
 
 class BSTIterator:
 
     def __init__(self, root):
-        self.stack = []
+        self.stack = collections.deque()
         self.curr = root
 
     def next(self):
