@@ -5,6 +5,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def lowestCommonAncestor(self, root, p, q):
         if root is None:
